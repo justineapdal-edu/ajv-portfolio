@@ -1,0 +1,22 @@
+export const site = {
+  name: "Justine Apdal",
+  initials: "AJ",
+  role: "Web Developer · Graphic Specialist · Video Editor",
+  email: "hello@justineapdal.dev",
+  location: "Philippines · Open to remote",
+  availability: "Available for Freelance & Full-time",
+  resume: "/resume.pdf",
+  established: 2019,
+  nav: [
+    { label: "Work", href: "#work" },
+    { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Contact", href: "#contact" },
+  ],
+  socials: [
+    { label: "GitHub", href: "https://github.com/justineapdal" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/justineapdal" },
+    { label: "Instagram", href: "https://www.instagram.com/justineapdal" },
+    { label: "X", href: "https://x.com/justineapdal" },
+  ],
+};
