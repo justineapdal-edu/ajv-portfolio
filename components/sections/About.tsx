@@ -2,9 +2,10 @@
 
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
+import { cn } from "@/lib/utils";
 
 const stats = [
-  { value: "7+", label: "Years of craft" },
+  { value: "2+", label: "Years of craft" },
   { value: "40+", label: "Projects shipped" },
   { value: "3", label: "Creative disciplines" },
   { value: "100%", label: "Caffeine-driven" },
@@ -126,36 +127,54 @@ export function About() {
           </Reveal>
 
           <Stagger className="relative">
-            <div className="absolute bottom-2 left-[7px] top-2 w-px bg-line" />
-            <div className="space-y-10 md:space-y-12">
-              {milestones.map((milestone) => (
-                <StaggerItem key={milestone.id}>
-                  <div className="relative flex gap-5 md:gap-10">
-                    <div className="relative z-10 mt-1.5 grid size-4 shrink-0 place-items-center rounded-full border border-line bg-background">
-                      <span className="size-1.5 rounded-full bg-accent" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className="font-mono text-xs text-accent">
-                          {milestone.year}
-                        </span>
-                        <span className="rounded-full border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
-                          {milestone.kind}
-                        </span>
+            <div className="absolute bottom-2 left-1/2 top-2 hidden w-px -translate-x-1/2 bg-line md:block" />
+            <div className="absolute bottom-2 left-[7px] top-2 w-px bg-line md:hidden" />
+            <div className="space-y-10 md:space-y-0">
+              {milestones.map((milestone, i) => {
+                const left = i % 2 === 0;
+                return (
+                  <StaggerItem key={milestone.id}>
+                    <div className="relative md:grid md:grid-cols-2 md:py-8">
+                      <span className="absolute left-0 top-1.5 z-10 grid size-4 place-items-center rounded-full border border-line bg-background md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+                        <span className="size-1.5 rounded-full bg-accent" />
+                      </span>
+                      <div
+                        className={cn(
+                          "pl-10 md:pl-0",
+                          left
+                            ? "md:col-start-1 md:flex md:justify-end md:pr-16"
+                            : "md:col-start-2 md:pl-16",
+                        )}
+                      >
+                        <div className={cn("md:max-w-md", left && "md:text-right")}>
+                          <div
+                            className={cn(
+                              "flex flex-wrap items-center gap-3",
+                              left && "md:justify-end",
+                            )}
+                          >
+                            <span className="font-mono text-xs text-accent">
+                              {milestone.year}
+                            </span>
+                            <span className="rounded-full border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
+                              {milestone.kind}
+                            </span>
+                          </div>
+                          <h4 className="mt-2 text-lg font-medium tracking-tight md:text-xl">
+                            {milestone.title}
+                          </h4>
+                          <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
+                            {milestone.place}
+                          </p>
+                          <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
+                            {milestone.desc}
+                          </p>
+                        </div>
                       </div>
-                      <h4 className="mt-2 text-lg font-medium tracking-tight md:text-xl">
-                        {milestone.title}
-                      </h4>
-                      <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
-                        {milestone.place}
-                      </p>
-                      <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
-                        {milestone.desc}
-                      </p>
                     </div>
-                  </div>
-                </StaggerItem>
-              ))}
+                  </StaggerItem>
+                );
+              })}
             </div>
           </Stagger>
         </div>

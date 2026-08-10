@@ -1,8 +1,8 @@
 export const site = {
   name: "Justine Apdal",
   initials: "AJ",
-  role: "Web Developer · Graphic Specialist · Video Editor",
-  email: "hello@justineapdal.dev",
+  role: "AI Engineer · Web Developer · Motion Designer",
+  email: "justineapdal.work@gmail.com",
   location: "Philippines · Open to remote",
   availability: "Available for Freelance & Full-time",
   resume: "/resume.pdf",
