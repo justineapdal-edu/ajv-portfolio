@@ -5,19 +5,10 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 import { EASE } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 import { AvailabilityPill } from "@/components/ui/AvailabilityPill";
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -27,14 +18,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-line/70 bg-background/80 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent",
-      )}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-background">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 md:h-20 md:px-8">
         <a href="#top" className="group flex items-center gap-3">
           <span className="grid size-9 place-items-center border border-line bg-surface/60 font-mono text-sm font-medium tracking-tight transition-colors group-hover:border-accent/60 group-hover:text-accent">
@@ -68,7 +52,7 @@ export function Header() {
             <ArrowUpRight className="size-3.5" />
           </a>
           <button
-            className="grid size-9 place-items-center border border-line text-foreground md:hidden"
+            className="grid size-9 place-items-center border border-line bg-surface text-foreground md:hidden"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
           >
@@ -81,10 +65,10 @@ export function Header() {
         {open && (
           <motion.div
             className="fixed inset-0 z-50 flex flex-col bg-background"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: EASE }}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.35, ease: EASE }}
           >
             <div className="flex h-16 items-center justify-between border-b border-line/70 px-5">
               <span className="font-mono text-xs uppercase tracking-[0.3em] text-muted">

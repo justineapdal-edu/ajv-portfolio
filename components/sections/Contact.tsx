@@ -214,7 +214,6 @@ export function Contact() {
                       value={form.type}
                       onChange={handleChange}
                       className={`${inputClass} appearance-none`}
-                      defaultValue=""
                     >
                       <option value="" disabled>
                         Select a service
@@ -231,7 +230,6 @@ export function Contact() {
                       value={form.budget}
                       onChange={handleChange}
                       className={`${inputClass} appearance-none`}
-                      defaultValue=""
                     >
                       <option value="" disabled>
                         Select a range

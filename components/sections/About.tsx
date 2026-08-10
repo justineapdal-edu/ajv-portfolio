@@ -12,6 +12,7 @@ const stats = [
 
 const milestones = [
   {
+    id: "2019-first-code",
     year: "2019",
     kind: "Origin",
     title: "First code, first edit",
@@ -19,6 +20,7 @@ const milestones = [
     desc: "Fell into the craft through web tutorials and a cracked copy of Premiere. Built the first site, cut the first reel — and never looked back.",
   },
   {
+    id: "2022-bsc",
     year: "2022",
     kind: "Education",
     title: "BSc in Information Technology",
@@ -26,6 +28,7 @@ const milestones = [
     desc: "Grounded the creative work in solid engineering fundamentals — databases, networks, and systems thinking.",
   },
   {
+    id: "2023-freelance",
     year: "2023",
     kind: "Experience",
     title: "Freelance web development",
@@ -33,6 +36,7 @@ const milestones = [
     desc: "Began shipping client sites end-to-end. Learned that the best products are equal parts engineering rigor and design taste.",
   },
   {
+    id: "2024-graphic-design",
     year: "2024",
     kind: "Certification",
     title: "Graphic design specialization",
@@ -40,6 +44,7 @@ const milestones = [
     desc: "Formalized the visual side — typography, color theory, brand systems — turning a side skill into a core discipline.",
   },
   {
+    id: "2025-video-editor",
     year: "2025",
     kind: "Experience",
     title: "Video editor & motion designer",
@@ -47,6 +52,7 @@ const milestones = [
     desc: "Cut reels, promos, and brand films while building the toolkit for motion design and color grading.",
   },
   {
+    id: "2025-hackathon",
     year: "2025",
     kind: "Event",
     title: "Regional hackathon finalist",
@@ -54,6 +60,7 @@ const milestones = [
     desc: "Shipped a full product in 48 hours with a three-person team — design, code, and pitch.",
   },
   {
+    id: "2026-open",
     year: "2026",
     kind: "Now",
     title: "Open for opportunities",
@@ -122,7 +129,7 @@ export function About() {
             <div className="absolute bottom-2 left-[7px] top-2 w-px bg-line" />
             <div className="space-y-10 md:space-y-12">
               {milestones.map((milestone) => (
-                <StaggerItem key={milestone.year}>
+                <StaggerItem key={milestone.id}>
                   <div className="relative flex gap-5 md:gap-10">
                     <div className="relative z-10 mt-1.5 grid size-4 shrink-0 place-items-center rounded-full border border-line bg-background">
                       <span className="size-1.5 rounded-full bg-accent" />
