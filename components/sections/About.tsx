@@ -21,11 +21,11 @@ const milestones = [
     desc: "Fell into the craft through web tutorials and a cracked copy of Premiere. Built the first site, cut the first reel — and never looked back.",
   },
   {
-    id: "2022-bsc",
+    id: "2022-2026",
     year: "2022",
     kind: "Education",
-    title: "BSc in Information Technology",
-    place: "University",
+    title: "BS in Information Technology",
+    place: "PUP San Juan",
     desc: "Grounded the creative work in solid engineering fundamentals — databases, networks, and systems thinking.",
   },
   {

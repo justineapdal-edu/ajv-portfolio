@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 import { EASE } from "@/lib/motion";
@@ -20,13 +21,15 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-background">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 md:h-20 md:px-8">
-        <a href="#top" className="group flex items-center gap-3">
-          <span className="grid size-9 place-items-center border border-line bg-surface/60 font-mono text-sm font-medium tracking-tight transition-colors group-hover:border-accent/60 group-hover:text-accent">
-            {site.initials}
-          </span>
-          <span className="hidden text-sm font-medium tracking-tight sm:block">
-            {site.name}
-          </span>
+        <a href="#top" className="flex items-center transition-opacity hover:opacity-80">
+          <Image
+            src="/Logo-WHite.png"
+            alt={site.name}
+            width={581}
+            height={893}
+            className="h-9 w-auto"
+            priority
+          />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
