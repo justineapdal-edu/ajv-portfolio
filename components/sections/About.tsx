@@ -2,14 +2,8 @@
 
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
-
-const stats = [
-  { value: "2+", label: "Years of craft" },
-  { value: "40+", label: "Projects shipped" },
-  { value: "3", label: "Creative disciplines" },
-  { value: "100%", label: "Caffeine-driven" },
-];
 
 const milestones = [
   {
@@ -74,47 +68,44 @@ export function About() {
   return (
     <section id="about" className="relative border-t border-line/70 py-28 md:py-44">
       <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
-        <SectionHeading
-          index="04"
-          label="About"
-          heading="Engineer by training. Storyteller by instinct."
-        />
-
-        <div className="grid gap-12 md:grid-cols-2 md:gap-16">
-          <div className="space-y-6">
-            <Reveal>
-              <p className="text-lg leading-relaxed text-foreground/90">
-                I&apos;m Justine — a web developer, graphic specialist, and
-                video editor based in the Philippines. My background is in
-                Information Technology, but my work lives at the intersection
-                of clean code, sharp design, and motion.
-              </p>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <p className="text-base leading-relaxed text-muted">
-                Whether it&apos;s a fast Next.js application, a visual identity
-                that gives a brand a voice, or a reel that keeps people
-                watching, I bring the same standard: detail, discipline, and a
-                genuine obsession with the final experience.
-              </p>
-            </Reveal>
+        <div className="grid gap-12 md:grid-cols-2 md:items-stretch md:gap-16">
+          <div>
+            <SectionHeading
+              index="04"
+              label="About"
+              heading="Engineer by training. Storyteller by instinct."
+            />
+            <div className="space-y-6">
+              <Reveal>
+                <p className="text-lg leading-relaxed text-foreground/90">
+                  I&apos;m Justine — a web developer, graphic specialist, and
+                  video editor based in the Philippines. My background is in
+                  Information Technology, but my work lives at the intersection
+                  of clean code, sharp design, and motion.
+                </p>
+              </Reveal>
+              <Reveal delay={0.08}>
+                <p className="text-base leading-relaxed text-muted">
+                  Whether it&apos;s a fast Next.js application, a visual identity
+                  that gives a brand a voice, or a reel that keeps people
+                  watching, I bring the same standard: detail, discipline, and a
+                  genuine obsession with the final experience.
+                </p>
+              </Reveal>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-background p-6 md:p-8"
-              >
-                <p className="text-3xl font-semibold tracking-tight md:text-5xl">
-                  {stat.value}
-                </p>
-                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.25em] text-muted">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
+          <Reveal delay={0.12} className="h-full">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-line bg-surface/40 md:aspect-auto md:h-full">
+              <Image
+                src="/portrait-ajv.jpg"
+                alt="Portrait of Justine Apdal"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top"
+              />
+            </div>
+          </Reveal>
         </div>
 
         <div className="mt-24 md:mt-32">

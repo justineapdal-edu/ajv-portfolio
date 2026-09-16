@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, X } from "lucide-react";
 import type { DesignProject } from "@/data/projects";
+import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 import { EASE } from "@/lib/motion";
 
 interface LightboxProps {
@@ -56,15 +57,18 @@ export function Lightbox({ project, onClose }: LightboxProps) {
                 }}
               />
               <div className="absolute inset-0 bg-grid opacity-60" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
-                <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-muted">
-                  {project.kind}
-                </span>
-                <span className="max-w-md text-3xl font-semibold tracking-tight md:text-5xl">
-                  {project.title}
-                </span>
-                <ArrowUpRight className="size-6 text-accent" />
-              </div>
+              {project.image ? (
+                <ImageWithFallback
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 48rem"
+                  className="object-cover"
+                  fallback={<LightboxPlaceholder project={project} />}
+                />
+              ) : (
+                <LightboxPlaceholder project={project} />
+              )}
             </div>
 
             <div className="mt-4 flex items-start justify-between gap-4">
@@ -91,5 +95,19 @@ export function Lightbox({ project, onClose }: LightboxProps) {
         </motion.div>
       )}
     </AnimatePresence>
+  );
+}
+
+function LightboxPlaceholder({ project }: { project: DesignProject }) {
+  return (
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
+      <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-muted">
+        {project.kind}
+      </span>
+      <span className="max-w-md text-3xl font-semibold tracking-tight md:text-5xl">
+        {project.title}
+      </span>
+      <ArrowUpRight className="size-6 text-accent" />
+    </div>
   );
 }

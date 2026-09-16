@@ -49,39 +49,42 @@ export type WorkTabId = (typeof workTabs)[number]["id"];
 
 export const webProjects: WebProject[] = [
   {
-    id: "lumen-dashboard",
+    id: "nexinta-landingpage",
     category: "web",
-    title: "Lumen — Analytics Dashboard",
+    title: "Nexinta Philippines — Website",
     description:
       "A real-time analytics platform with custom data visualization, role-based access, and sub-second dashboard loads.",
     year: "2026",
     tags: ["Next.js", "React", "TypeScript", "Tailwind", "Node.js"],
-    liveUrl: "https://example.com/lumen",
-    githubUrl: "https://github.com/justineapdal/lumen",
+    liveUrl: "https://nexinta.ph",
+    // githubUrl: "https://github.com/justineapdal/lumen",
+    screenshot: "/screenshot/nexinta.png",
     accent: ["#3b82f6", "#8b5cf6"],
   },
   {
-    id: "kinetiq-storefront",
+    id: "Sharplead-Medical-Website",
     category: "web",
-    title: "Kinetiq — E-commerce Storefront",
+    title: "Sharplead Medical — Website",
     description:
       "Headless commerce build with edge-rendered product pages, Stripe checkout, and a fully searchable catalog.",
-    year: "2025",
+    year: "2026",
     tags: ["Next.js", "Stripe", "Tailwind", "PostgreSQL"],
-    liveUrl: "https://example.com/kinetiq",
-    githubUrl: "https://github.com/justineapdal/kinetiq",
+    liveUrl: "https://sharpleadmedical.com/",
+    // githubUrl: "https://github.com/justineapdal/kinetiq",
+    screenshot: "/screenshot/sharplead.png",
     accent: ["#10b981", "#22d3ee"],
   },
   {
     id: "pulse-agency",
     category: "web",
-    title: "Pulse — Creative Agency",
+    title: "Casa Central — Real Estate Listing Website",
     description:
       "Editorial agency site with scroll-driven storytelling, WebGL accents, and obsessive attention to typography.",
     year: "2025",
     tags: ["React", "Framer Motion", "Tailwind"],
     liveUrl: "https://example.com/pulse",
-    githubUrl: "https://github.com/justineapdal/pulse",
+    // githubUrl: "https://github.com/justineapdal/pulse",
+    screenshot: "/screenshot/casa-central.png",
     accent: ["#f97316", "#ef4444"],
   },
   {
@@ -94,6 +97,7 @@ export const webProjects: WebProject[] = [
     tags: ["Next.js", "Node.js", "MongoDB", "PWA"],
     liveUrl: "https://example.com/nomad",
     githubUrl: "https://github.com/justineapdal/nomad",
+    screenshot: "/screenshot/nexinta.png",
     accent: ["#8b5cf6", "#ec4899"],
   },
 ];
@@ -105,6 +109,7 @@ export const designProjects: DesignProject[] = [
     title: "Ora Coffee Co.",
     kind: "Brand Identity",
     aspect: "tall",
+    image: "/image/ads-1.jpg",
     accent: ["#f472b6", "#c084fc"],
     blurb:
       "Full identity system — logo suite, packaging, and art direction for a specialty coffee roaster.",
@@ -115,6 +120,7 @@ export const designProjects: DesignProject[] = [
     title: "Velocity Fitness",
     kind: "Social Media",
     aspect: "square",
+    image: "/image/hdc-1.png",
     accent: ["#fbbf24", "#f87171"],
     blurb:
       "30-day social campaign kit: carousels, story templates, and a reusable content system.",
@@ -125,6 +131,7 @@ export const designProjects: DesignProject[] = [
     title: "Aurora Music Festival",
     kind: "Poster",
     aspect: "tall",
+    image: "/image/novi-1.png",
     accent: ["#22d3ee", "#818cf8"],
     blurb:
       "High-contrast poster series translating electronic sound into bold geometric forms.",
@@ -135,6 +142,7 @@ export const designProjects: DesignProject[] = [
     title: "Nimbus Studio",
     kind: "Brand Identity",
     aspect: "wide",
+    image: "/image/hrm-1.png",
     accent: ["#34d399", "#14b8a6"],
     blurb:
       "Identity for a 3D animation studio — mark, motion, and a flexible color system.",
@@ -145,6 +153,7 @@ export const designProjects: DesignProject[] = [
     title: "Kapi Taproom",
     kind: "Social Media",
     aspect: "square",
+    image: "/image/hava-1.png",
     accent: ["#a855f7", "#6366f1"],
     blurb:
       "Launch campaign assets and menu design for a craft beer taproom opening.",
@@ -155,6 +164,7 @@ export const designProjects: DesignProject[] = [
     title: "Forma Print Series",
     kind: "Poster",
     aspect: "tall",
+    image: "/image/poster-1.jpg",
     accent: ["#0ea5e9", "#38bdf8"],
     blurb:
       "Swiss-style print series exploring grid systems, halftones, and editorial rhythm.",
