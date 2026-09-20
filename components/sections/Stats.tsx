@@ -1,7 +1,7 @@
 const stats = [
   { value: "2+", label: "Years of craft" },
-  { value: "40+", label: "Projects shipped" },
-  { value: "3", label: "Creative disciplines" },
+  { value: "5+", label: "Projects shipped" },
+  { value: "25+", label: "Creative disciplines" },
   { value: "100%", label: "Caffeine-driven" },
 ];
 

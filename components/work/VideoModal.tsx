@@ -11,6 +11,21 @@ interface VideoModalProps {
   onClose: () => void;
 }
 
+function getYouTubeEmbedUrl(url?: string): string | null {
+  if (!url) return null;
+  const patterns = [
+    /youtu\.be\/([a-zA-Z0-9_-]{11})/,
+    /youtube\.com\/watch\?.*v=([a-zA-Z0-9_-]{11})/,
+    /youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/,
+    /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+  ];
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match) return `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0`;
+  }
+  return null;
+}
+
 export function VideoModal({ project, onClose }: VideoModalProps) {
   useEffect(() => {
     if (!project) return;
@@ -49,7 +64,15 @@ export function VideoModal({ project, onClose }: VideoModalProps) {
             className="relative w-full max-w-4xl"
           >
             <div className="overflow-hidden rounded-xl border border-line bg-black">
-              {project.videoUrl ? (
+              {getYouTubeEmbedUrl(project.videoUrl) ? (
+                <iframe
+                  src={getYouTubeEmbedUrl(project.videoUrl)!}
+                  title={project.title}
+                  className="aspect-video w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : project.videoUrl ? (
                 <video
                   controls
                   autoPlay

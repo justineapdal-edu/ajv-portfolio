@@ -61,6 +61,10 @@ section[id] {
   outline-offset: 3px;
 }
 
+.focus-line-only:focus-visible {
+  outline: none;
+}
+
 .bg-grid {
   background-image:
     linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),

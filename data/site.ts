@@ -3,10 +3,10 @@ export const site = {
   initials: "AJ",
   role: "AI Engineer · Web Developer · Motion Designer",
   email: "justineapdal.work@gmail.com",
-  location: "Philippines · Open to remote",
+  location: "Philippines",
   availability: "Available for Freelance & Full-time",
   resume: "/resume.pdf",
-  established: 2019,
+  established: 2024,
   nav: [
     { label: "Work", href: "#work" },
     { label: "About", href: "#about" },

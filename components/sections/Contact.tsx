@@ -13,9 +13,10 @@ import { site } from "@/data/site";
 import { EASE } from "@/lib/motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SocialIcon } from "@/components/ui/icons";
+import { CustomSelect } from "@/components/ui/CustomSelect";
 
 const inputClass =
-  "w-full border-b border-line bg-transparent py-3 text-sm text-foreground transition-colors placeholder:text-muted/50 focus:border-accent focus:outline-none";
+  "focus-line-only w-full border-b border-line bg-transparent py-3 text-sm text-foreground transition-colors placeholder:text-muted/50 focus:border-accent focus:outline-none";
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -47,6 +48,10 @@ export function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
+  function handleSelect(name: string, value: string) {
+    setForm((prev) => ({ ...prev, [name]: value }));
+  }
+
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
@@ -62,8 +67,8 @@ export function Contact() {
       [
         `Name: ${form.name}`,
         `Email: ${form.email}`,
-        `Project Type: ${form.type || "Not specified"}`,
-        `Budget: ${form.budget || "Not specified"}`,
+        // `Project Type: ${form.type || "Not specified"}`,
+        // `Budget: ${form.budget || "Not specified"}`,
         ``,
         `Message:`,
         form.message,
@@ -207,40 +212,36 @@ export function Contact() {
                   </Field>
                 </div>
 
-                <div className="grid gap-8 md:grid-cols-2">
+                {/* <div className="grid gap-8 md:grid-cols-2">
                   <Field label="Project Type">
-                    <select
+                    <CustomSelect
                       name="type"
                       value={form.type}
-                      onChange={handleChange}
-                      className={`${inputClass} appearance-none`}
-                    >
-                      <option value="" disabled>
-                        Select a service
-                      </option>
-                      <option>Web Development</option>
-                      <option>Graphic Design</option>
-                      <option>Video Editing</option>
-                      <option>Something else</option>
-                    </select>
+                      options={[
+                        "Web Development",
+                        "Graphic Design",
+                        "Video Editing",
+                        "Something else",
+                      ]}
+                      placeholder="Select a service"
+                      onChange={handleSelect}
+                    />
                   </Field>
                   <Field label="Budget">
-                    <select
+                    <CustomSelect
                       name="budget"
                       value={form.budget}
-                      onChange={handleChange}
-                      className={`${inputClass} appearance-none`}
-                    >
-                      <option value="" disabled>
-                        Select a range
-                      </option>
-                      <option>Under $1,000</option>
-                      <option>$1,000 — $5,000</option>
-                      <option>$5,000+</option>
-                      <option>Not sure yet</option>
-                    </select>
+                      options={[
+                        "Under $1,000",
+                        "$1,000 — $5,000",
+                        "$5,000+",
+                        "Not sure yet",
+                      ]}
+                      placeholder="Select a range"
+                      onChange={handleSelect}
+                    />
                   </Field>
-                </div>
+                </div> */}
 
                 <Field label="Message">
                   <textarea

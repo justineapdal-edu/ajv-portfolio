@@ -7,61 +7,33 @@ import { cn } from "@/lib/utils";
 
 const milestones = [
   {
-    id: "2019-first-code",
-    year: "2019",
-    kind: "Origin",
-    title: "First code, first edit",
-    place: "Self-taught · Home studio",
-    desc: "Fell into the craft through web tutorials and a cracked copy of Premiere. Built the first site, cut the first reel — and never looked back.",
+    id: "education-2022-b",
+    period: "September 2020 – April 2022",
+    year: "2022",
+    kind: "Part-time",
+    title: "Digital Marketing Specialist",
+    place: "Henceforth Group of Companies",
+    desc: "Responsible for planning and executing digital marketing strategies to support brand awareness and audience engagement",
   },
   {
-    id: "2022-2026",
-    year: "2022",
+    id: "internship-2026-b",
+    period: "February – June",
+    year: "2026",
+    kind: "Internship",
+    title: "Software Developer Intern",
+    place: "Golden Suntech Solutions Inc.",
+    desc: "Responsible for developing and maintaining Odoo Modules, collaborating with cross-functional teams to deliver high-quality software solutions.",
+  },
+  {
+    id: "education-2022",
+    period: "September",
+    year: "2026",
     kind: "Education",
     title: "BS in Information Technology",
     place: "PUP San Juan",
     desc: "Grounded the creative work in solid engineering fundamentals — databases, networks, and systems thinking.",
   },
-  {
-    id: "2023-freelance",
-    year: "2023",
-    kind: "Experience",
-    title: "Freelance web development",
-    place: "Independent · Remote",
-    desc: "Began shipping client sites end-to-end. Learned that the best products are equal parts engineering rigor and design taste.",
-  },
-  {
-    id: "2024-graphic-design",
-    year: "2024",
-    kind: "Certification",
-    title: "Graphic design specialization",
-    place: "Certification program",
-    desc: "Formalized the visual side — typography, color theory, brand systems — turning a side skill into a core discipline.",
-  },
-  {
-    id: "2025-video-editor",
-    year: "2025",
-    kind: "Experience",
-    title: "Video editor & motion designer",
-    place: "Content studio",
-    desc: "Cut reels, promos, and brand films while building the toolkit for motion design and color grading.",
-  },
-  {
-    id: "2025-hackathon",
-    year: "2025",
-    kind: "Event",
-    title: "Regional hackathon finalist",
-    place: "Competition",
-    desc: "Shipped a full product in 48 hours with a three-person team — design, code, and pitch.",
-  },
-  {
-    id: "2026-open",
-    year: "2026",
-    kind: "Now",
-    title: "Open for opportunities",
-    place: "Remote · Worldwide",
-    desc: "Looking for freelance projects and full-time roles where web, design, and video collide.",
-  },
+
 ];
 
 export function About() {
@@ -144,9 +116,14 @@ export function About() {
                               left && "md:justify-end",
                             )}
                           >
-                            <span className="font-mono text-xs text-accent">
-                              {milestone.year}
-                            </span>
+                            <div className="flex flex-col leading-none">
+                              <span className="font-mono text-xs text-accent">
+                                {milestone.year}
+                              </span>
+                              <span className="mt-0.5 font-mono text-[11px] tracking-[0.2em] text-muted">
+                                {milestone.period}
+                              </span>
+                            </div>
                             <span className="rounded-full border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-muted">
                               {milestone.kind}
                             </span>
