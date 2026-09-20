@@ -5,7 +5,7 @@ import { site } from "@/data/site";
 export const metadata: Metadata = {
   title: "Privacy Policy — Justine Apdal",
   description:
-    "How Justine Apdal collects, uses, and protects your information when you use this portfolio site and its contact form.",
+    "How Justine Apdal collects, uses, and protects your information when you use the contact form on this portfolio site.",
 };
 
 export default function PrivacyPage() {
@@ -16,45 +16,35 @@ export default function PrivacyPage() {
       title="Privacy Policy"
       updated="September 21, 2026"
     >
-      <PageSection title="1. Introduction">
+      <PageSection title="1. What This Policy Covers">
         <p>
-          This Privacy Policy explains what information is collected when you
-          visit this portfolio site and use its contact form, how it is used,
-          and the choices you have. By using this site, you agree to the
-          practices described below.
+          This policy explains how your information is handled when you use the
+          contact form on this site. This site does not use cookies or tracking
+          scripts, and nothing is collected automatically while you browse.
         </p>
       </PageSection>
 
-      <PageSection title="2. Information I Collect">
+      <PageSection title="2. Information You Submit">
         <p>
-          <strong className="text-foreground">Contact form.</strong> When you
-          submit the contact form, I receive your name, email address, and the
-          contents of your message. This information is used solely to respond
-          to your inquiry.
-        </p>
-        <p>
-          <strong className="text-foreground">Usage data.</strong> This site
-          does not use cookies or third-party analytics for advertising. Your
-          hosting provider may record standard, anonymized server logs (such as
-          IP address and request metadata) as necessary to operate and secure
-          the site.
+          When you submit the contact form, I receive your name, your email
+          address, and the contents of your message. This information is used
+          solely to respond to your inquiry and any follow-up conversation.
         </p>
       </PageSection>
 
-      <PageSection title="3. How Your Data Is Processed">
+      <PageSection title="3. How Your Message Is Delivered">
         <p>
-          Contact form submissions are transmitted over HTTPS and delivered to
-          my inbox through Resend, a third-party email delivery service.
-          Resend processes your message only to transmit it and does not use
-          your data for its own purposes. By submitting the form you consent to
-          this processing.
+          Form submissions are sent over HTTPS to a server route on this site,
+          which forwards the message to my inbox through Resend, a third-party
+          email delivery service. Resend receives your message only to transmit
+          it and does not use it for its own purposes.
         </p>
       </PageSection>
 
       <PageSection title="4. Data Retention">
         <p>
-          Messages are retained only as long as needed to address your inquiry
-          and any follow-ups, or as required by applicable law. You may request
+          Messages are kept only as long as needed to address your inquiry and
+          any follow-ups, or as required by applicable law. You may request
           deletion of your correspondence at any time at{" "}
           <a
             className="text-accent hover:underline"

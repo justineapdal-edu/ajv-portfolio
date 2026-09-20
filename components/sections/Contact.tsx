@@ -9,6 +9,7 @@ import {
   Send,
 } from "lucide-react";
 import { useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
+import Link from "next/link";
 import { site } from "@/data/site";
 import { EASE } from "@/lib/motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -279,6 +280,17 @@ export function Contact() {
                     <Send className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   )}
                 </button>
+                <p className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-muted/70">
+                  By submitting, you agree to the{" "}
+                  <Link href="/terms" className="text-muted transition-colors hover:text-accent">
+                    Terms
+                  </Link>{" "}
+                  and the{" "}
+                  <Link href="/privacy" className="text-muted transition-colors hover:text-accent">
+                    Privacy Policy
+                  </Link>
+                  .
+                </p>
               </form>
             )}
           </motion.div>

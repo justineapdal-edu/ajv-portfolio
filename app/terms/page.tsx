@@ -5,7 +5,7 @@ import { site } from "@/data/site";
 export const metadata: Metadata = {
   title: "Terms & Conditions — Justine Apdal",
   description:
-    "The terms governing use of this portfolio site and engagements made through it.",
+    "The terms governing contact form submissions and project inquiries made through this portfolio site.",
 };
 
 export default function TermsPage() {
@@ -16,7 +16,7 @@ export default function TermsPage() {
       title="Terms & Conditions"
       updated="September 21, 2026"
     >
-      <PageSection title="1. Acceptance of Terms">
+      <PageSection title="1. Using This Site">
         <p>
           By accessing this website, you agree to be bound by these Terms and
           Conditions. If you do not agree with any part of these terms, please
@@ -33,17 +33,30 @@ export default function TermsPage() {
         </p>
       </PageSection>
 
-      <PageSection title="3. Project Inquiries">
+      <PageSection title="3. Contact Form Submissions">
         <p>
           Submitting the contact form does not create a binding agreement.
-          Contracts for work are formed only upon execution of a written
+          Information submitted is used to respond to your inquiry as described
+          in the{" "}
+          <a className="text-accent hover:underline" href="/privacy">
+            Privacy Policy
+          </a>
+          . Contracts for work are formed only upon execution of a written
           proposal or agreement between both parties. Scope, deliverables,
           timelines, and pricing are defined exclusively in the terms of that
           agreement.
         </p>
       </PageSection>
 
-      <PageSection title="4. Disclaimer">
+      <PageSection title="4. Your Responsibilities">
+        <p>
+          You agree that the information you submit is accurate and that you
+          will not use the contact form to send unlawful, harassing, or
+          misleading content.
+        </p>
+      </PageSection>
+
+      <PageSection title="5. Disclaimer">
         <p>
           This site is provided &quot;as is&quot; without warranties of any kind, express
           or implied. While I aim for accuracy, I do not guarantee that the site
@@ -51,7 +64,7 @@ export default function TermsPage() {
         </p>
       </PageSection>
 
-      <PageSection title="5. Limitation of Liability">
+      <PageSection title="6. Limitation of Liability">
         <p>
           To the maximum extent permitted by law, Justine Apdal shall not be
           liable for any indirect, incidental, or consequential damages arising
@@ -59,7 +72,7 @@ export default function TermsPage() {
         </p>
       </PageSection>
 
-      <PageSection title="6. Governing Law">
+      <PageSection title="7. Governing Law">
         <p>
           These terms are governed by the laws of the Republic of the
           Philippines, and any disputes shall be subject to the exclusive
@@ -67,7 +80,7 @@ export default function TermsPage() {
         </p>
       </PageSection>
 
-      <PageSection title="7. Contact">
+      <PageSection title="8. Contact">
         <p>
           Questions about these terms can be directed to{" "}
           <a

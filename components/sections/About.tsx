@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const milestones = [
   {
-    id: "education-2022-b",
+    id: "job-2022",
     period: "September 2020 – April 2022",
     year: "2022",
     kind: "Part-time",
@@ -33,6 +33,15 @@ const milestones = [
     place: "PUP San Juan",
     desc: "Grounded the creative work in solid engineering fundamentals — databases, networks, and systems thinking.",
   },
+  {
+    id: "2026-present",
+    period: "August - Present",
+    year: "2026",
+    kind: "Active",
+    title: "Software Developer",
+    place: "Nexinta I.T. Solutions",
+    desc: "Developing and maintaining software solutions for business needs.",
+  }
 
 ];
 
