@@ -14,9 +14,9 @@ export const site = {
     { label: "Contact", href: "#contact" },
   ],
   socials: [
-    { label: "GitHub", href: "https://github.com/justineapdal" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/justineapdal" },
-    { label: "Instagram", href: "https://www.instagram.com/justineapdal" },
-    { label: "X", href: "https://x.com/justineapdal" },
+    { label: "GitHub", href: "https://github.com/justineapdal-edu" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/justine-apdal/" },
+    // { label: "Instagram", href: "https://www.instagram.com/justineapdal" },
+    // { label: "X", href: "https://x.com/justineapdal" },
   ],
 };
