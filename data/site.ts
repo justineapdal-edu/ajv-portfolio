@@ -8,10 +8,10 @@ export const site = {
   resume: "/ajv-resume.pdf",
   established: 2024,
   nav: [
-    { label: "Work", href: "#work" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Contact", href: "#contact" },
+    { label: "Work", href: "/#work" },
+    { label: "About", href: "/#about" },
+    { label: "Services", href: "/#services" },
+    { label: "Contact", href: "/#contact" },
   ],
   socials: [
     { label: "GitHub", href: "https://github.com/justineapdal-edu" },
