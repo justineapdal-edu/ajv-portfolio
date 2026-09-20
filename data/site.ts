@@ -5,7 +5,7 @@ export const site = {
   email: "justineapdal.work@gmail.com",
   location: "Philippines",
   availability: "Available for Freelance & Full-time",
-  resume: "/resume.pdf",
+  resume: "/ajv-resume.pdf",
   established: 2024,
   nav: [
     { label: "Work", href: "#work" },
