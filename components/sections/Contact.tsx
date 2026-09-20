@@ -41,6 +41,7 @@ export function Contact() {
   const [form, setForm] = useState(initialForm);
   const [error, setError] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
 
   function handleChange(
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
@@ -52,31 +53,38 @@ export function Contact() {
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       setError("Please fill in your name, email, and message.");
       return;
     }
     setError(null);
+    setSending(true);
 
-    const subject = encodeURIComponent(
-      `Project inquiry — ${form.type || "General"} from ${form.name}`,
-    );
-    const body = encodeURIComponent(
-      [
-        `Name: ${form.name}`,
-        `Email: ${form.email}`,
-        // `Project Type: ${form.type || "Not specified"}`,
-        // `Budget: ${form.budget || "Not specified"}`,
-        ``,
-        `Message:`,
-        form.message,
-      ].join("\n"),
-    );
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
 
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-    setSent(true);
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+
+      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+
+      setSent(true);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Something went wrong. Try again.",
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -166,11 +174,11 @@ export function Contact() {
                   <Check className="size-5" />
                 </span>
                 <h3 className="mt-6 text-2xl font-semibold tracking-tight">
-                  Email draft opened
+                  Message sent
                 </h3>
                 <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-                  Your message is ready in your mail client. Hit send and I&apos;ll
-                  get back to you within 24 hours.
+                  Thanks for reaching out! I&apos;ll get back to you within 24
+                  hours.
                 </p>
                 <button
                   onClick={() => {
@@ -263,10 +271,13 @@ export function Contact() {
 
                 <button
                   type="submit"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-white"
+                  disabled={sending}
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-white disabled:opacity-60"
                 >
-                  Send Message
-                  <Send className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  {sending ? "Sending..." : "Send Message"}
+                  {!sending && (
+                    <Send className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  )}
                 </button>
               </form>
             )}
