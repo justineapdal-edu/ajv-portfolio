@@ -1,4 +1,5 @@
 import { ArrowUp, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { site } from "@/data/site";
 import { SocialIcon } from "@/components/ui/icons";
 
@@ -31,7 +32,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 md:justify-items-end">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:justify-items-end">
             <div>
               <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.3em] text-muted">
                 Menu
@@ -39,14 +40,45 @@ export function Footer() {
               <ul className="space-y-3">
                 {site.nav.map((link) => (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-sm text-muted transition-colors hover:text-foreground"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
+              </ul>
+            </div>
+            <div>
+              <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.3em] text-muted">
+                Legal
+              </p>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    href="/privacy"
+                    className="text-sm text-muted transition-colors hover:text-foreground"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/terms"
+                    className="text-sm text-muted transition-colors hover:text-foreground"
+                  >
+                    Terms
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/faq"
+                    className="text-sm text-muted transition-colors hover:text-foreground"
+                  >
+                    FAQ
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -78,13 +110,13 @@ export function Footer() {
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
             Built with Next.js · Tailwind · Framer Motion
           </p>
-          <a
-            href="#top"
+          <Link
+            href="/#top"
             className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted transition-colors hover:text-accent"
           >
             <ArrowUp className="size-3" />
             Back to top
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

@@ -3,10 +3,13 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 import { EASE } from "@/lib/motion";
 import { AvailabilityPill } from "@/components/ui/AvailabilityPill";
+
+const MotionLink = motion.create(Link);
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -21,7 +24,15 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-background">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 md:h-20 md:px-8">
-        <a href="#top" className="flex items-center transition-opacity hover:opacity-80">
+        <Link
+          href="/#top"
+          onClick={() => {
+            if (window.location.pathname === "/") {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+          className="flex items-center transition-opacity hover:opacity-80"
+        >
           <Image
             src="/Logo-WHite.png"
             alt={site.name}
@@ -30,30 +41,30 @@ export function Header() {
             className="h-9 w-auto"
             priority
           />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {site.nav.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="group relative font-mono text-[11px] uppercase tracking-[0.25em] text-muted transition-colors hover:text-foreground"
             >
               {link.label}
               <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
           <AvailabilityPill className="hidden lg:inline-flex" />
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="hidden items-center gap-2 rounded-full bg-foreground px-4 py-2 text-xs font-medium text-background transition-colors hover:bg-accent hover:text-white sm:inline-flex"
           >
             Let&apos;s Talk
             <ArrowUpRight className="size-3.5" />
-          </a>
+          </Link>
           <button
             className="grid size-9 place-items-center border border-line bg-surface text-foreground md:hidden"
             onClick={() => setOpen(true)}
@@ -88,7 +99,7 @@ export function Header() {
 
             <nav className="flex flex-1 flex-col justify-center px-5">
               {site.nav.map((link, i) => (
-                <motion.a
+                <MotionLink
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
@@ -101,7 +112,7 @@ export function Header() {
                     {link.label}
                   </span>
                   <span className="font-mono text-xs text-muted">0{i + 1}</span>
-                </motion.a>
+                </MotionLink>
               ))}
             </nav>
 
